@@ -1,119 +1,289 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Project Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="multiple-scenes ">
+  <head>
+    <title>Project Title</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <style>
+      @-ms-viewport {
+        width: device-width;
+      }
+    </style>
+    <link rel="stylesheet" href="vendor/reset.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="multiple-scenes">
+    <div id="pano"></div>
 
-<div id="pano"></div>
+    <div id="sceneList">
+      <ul class="scenes">
+        <a href="javascript:void(0)" class="scene" data-id="0--1">
+          <li class="text">축사-통로1</li>
+        </a>
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0--1">
-        <li class="text">축사-통로1</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1--2">
-        <li class="text">축사-통로2</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="2--3">
-        <li class="text">축사-통로3</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="3-a-1-">
-        <li class="text">A-1 조감도</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="4-a-2--">
-        <li class="text">A-2 축사 입구</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="5-a-3--">
-        <li class="text">A-3 스마트팜 출입구</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="6-b-1-">
-        <li class="text">B-1 모돈사</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="7-b-2-">
-        <li class="text">B-2 분만사</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="8-b-3-">
-        <li class="text">B-3 자돈사</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="9-b-4-">
-        <li class="text">B-4 육성사</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="10-b-5-">
-        <li class="text">B-5 비육사</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="11-c-1--">
-        <li class="text">C-1 관리사무실 입구</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="12-c-2-">
-        <li class="text">C-2 관리사무실</li>
-      </a>
-    
-  </ul>
-</div>
+        <a href="javascript:void(0)" class="scene" data-id="1--2">
+          <li class="text">축사-통로2</li>
+        </a>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
+        <a href="javascript:void(0)" class="scene" data-id="2--3">
+          <li class="text">축사-통로3</li>
+        </a>
 
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
+        <a href="javascript:void(0)" class="scene" data-id="3-a-1-">
+          <li class="text">A-1 조감도</li>
+        </a>
 
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
+        <a href="javascript:void(0)" class="scene" data-id="4-a-2--">
+          <li class="text">A-2 축사 입구</li>
+        </a>
 
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
+        <a href="javascript:void(0)" class="scene" data-id="5-a-3--">
+          <li class="text">A-3 스마트팜 출입구</li>
+        </a>
 
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
+        <a href="javascript:void(0)" class="scene" data-id="6-b-1-">
+          <li class="text">B-1 모돈사</li>
+        </a>
 
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
+        <a href="javascript:void(0)" class="scene" data-id="7-b-2-">
+          <li class="text">B-2 분만사</li>
+        </a>
 
-<script src="data.js"></script>
-<script src="index.js"></script>
+        <a href="javascript:void(0)" class="scene" data-id="8-b-3-">
+          <li class="text">B-3 자돈사</li>
+        </a>
 
-</body>
+        <a href="javascript:void(0)" class="scene" data-id="9-b-4-">
+          <li class="text">B-4 육성사</li>
+        </a>
+
+        <a href="javascript:void(0)" class="scene" data-id="10-b-5-">
+          <li class="text">B-5 비육사</li>
+        </a>
+
+        <a href="javascript:void(0)" class="scene" data-id="11-c-1--">
+          <li class="text">C-1 관리사무실 입구</li>
+        </a>
+
+        <a href="javascript:void(0)" class="scene" data-id="12-c-2-">
+          <li class="text">C-2 관리사무실</li>
+        </a>
+      </ul>
+    </div>
+
+    <div
+      class="w-[350px] fixed inset-0 top-10 right-auto bg-white text-black hidden flex flex-col"
+      id="left-info"
+    >
+      <div class="grid grid-cols-3">
+        <div
+          class="border-b border-solid border-[#000000] h-10 flex items-center justify-center text-center"
+        >
+          장소A
+        </div>
+        <div
+          class="border-b border-solid border-[#AAAAAA] h-10 flex items-center justify-center text-center"
+        >
+          장소B
+        </div>
+        <div
+          class="border-b border-solid border-[#AAAAAA] h-10 flex items-center justify-center text-center"
+        >
+          장소C
+        </div>
+      </div>
+      <div class="px-5 flex items-center gap-2.5 h-10">
+        <div
+          class="h-6 flex items-center justify-center text-center text-xs rounded-full text-[#B3B3B3]"
+        >
+          장소A-1
+        </div>
+        <div
+          class="h-6 flex items-center justify-center text-center text-xs rounded-full bg-[#D9D9D9] text-black px-2"
+        >
+          장소A-2
+        </div>
+        <div
+          class="h-6 flex items-center justify-center text-center text-xs rounded-full text-[#B3B3B3]"
+        >
+          장소A-3
+        </div>
+      </div>
+      <div class="bg-[#E4E7E8] h-1"></div>
+      <div class="p-5">
+        <div class="text-base font-bold">모돈 자동급이기</div>
+        <div class="h-[150px] bg-[#E4E7E8] mt-1.5"></div>
+      </div>
+      <div class="bg-[#E4E7E8] h-1"></div>
+      <!-- Swiper -->
+      <div class="p-5 space-y-6 overflow-y-auto grow">
+        <div>
+          <div class="relative">
+            <div
+              class="text-sm text-[#b3b3b3] bg-white relative z-10 inline-flex pr-1"
+            >
+              업체 정보
+            </div>
+            <div
+              class="absolute top-1/2 right-0 left-0 h-[1px] bg-[#BFBFBF]"
+            ></div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs text-[#b3b3b3]">제조사 / 등록기업</div>
+              <div class="text-sm mt-0.5">회사 A / 등록기업 A</div>
+            </div>
+            <a href="#" class="block text-xs text-[#477FD2]">바로가기</a>
+          </div>
+        </div>
+        <div>
+          <div class="relative">
+            <div
+              class="text-sm text-[#b3b3b3] bg-white relative z-10 inline-flex pr-1"
+            >
+              설비 정보
+            </div>
+            <div
+              class="absolute top-1/2 right-0 left-0 h-[1px] bg-[#BFBFBF]"
+            ></div>
+          </div>
+          <div class="space-y-2 mt-4">
+            <div>
+              <div class="text-xs text-[#b3b3b3]">표준장치명 / 모델명</div>
+              <div class="text-sm mt-0.5">모돈 자동급이기 / PECS-301</div>
+            </div>
+            <div>
+              <div class="text-xs text-[#b3b3b3]">ICT장비 등록번호</div>
+              <div class="text-sm mt-0.5">000.0000.0000</div>
+            </div>
+            <div>
+              <div class="text-xs text-[#b3b3b3]">주요 기능</div>
+              <div class="text-sm mt-0.5">
+                센서를 통한 일정량의 사료와 물 지속적으로 동시공급
+              </div>
+            </div>
+            <div>
+              <div class="text-xs text-[#b3b3b3]">구성</div>
+              <div class="text-sm mt-0.5">
+                온습도 센서, Co2 센서, 컨트롤 판넬, 미니PC, 릴레이, 센서 노드,
+                소프트웨어, 인버터
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="relative">
+            <div
+              class="text-sm text-[#b3b3b3] bg-white relative z-10 inline-flex pr-1"
+            >
+              ICT 정보
+            </div>
+            <div
+              class="absolute top-1/2 right-0 left-0 h-[1px] bg-[#BFBFBF]"
+            ></div>
+          </div>
+          <div class="space-y-2 mt-4">
+            <div>
+              <div class="text-xs text-[#b3b3b3]">수집 데이터</div>
+              <div class="text-sm mt-0.5">
+                일일 사료량, 계체량, 필요 사료량, RFiD 위치 정보, 센서, 개체별
+                급이량
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="relative">
+            <div
+              class="text-sm text-[#b3b3b3] bg-white relative z-10 inline-flex pr-1"
+            >
+              도입 시고려사항
+            </div>
+            <div
+              class="absolute top-1/2 right-0 left-0 h-[1px] bg-[#BFBFBF]"
+            ></div>
+          </div>
+          <div class="space-y-2 mt-4">
+            <div>
+              <div class="text-xs text-[#b3b3b3]">비용</div>
+              <div class="text-sm mt-0.5">00 백 만원</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="titleBar">
+      <h1 class="sceneName"></h1>
+    </div>
+
+    <a href="javascript:void(0)" id="autorotateToggle">
+      <img class="icon off" src="img/play.png" />
+      <img class="icon on" src="img/pause.png" />
+    </a>
+
+    <a href="javascript:void(0)" id="fullscreenToggle">
+      <img class="icon off" src="img/fullscreen.png" />
+      <img class="icon on" src="img/windowed.png" />
+    </a>
+
+    <a href="javascript:void(0)" id="sceneListToggle">
+      <img class="icon off" src="img/expand.png" />
+      <img class="icon on" src="img/collapse.png" />
+    </a>
+
+    <a
+      href="javascript:void(0)"
+      id="viewUp"
+      class="viewControlButton viewControlButton-1"
+    >
+      <img class="icon" src="img/up.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewDown"
+      class="viewControlButton viewControlButton-2"
+    >
+      <img class="icon" src="img/down.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewLeft"
+      class="viewControlButton viewControlButton-3"
+    >
+      <img class="icon" src="img/left.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewRight"
+      class="viewControlButton viewControlButton-4"
+    >
+      <img class="icon" src="img/right.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewIn"
+      class="viewControlButton viewControlButton-5"
+    >
+      <img class="icon" src="img/plus.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewOut"
+      class="viewControlButton viewControlButton-6"
+    >
+      <img class="icon" src="img/minus.png" />
+    </a>
+
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
