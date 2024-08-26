@@ -30,6 +30,70 @@
   var autorotateToggleElement = document.querySelector("#autorotateToggle");
   var fullscreenToggleElement = document.querySelector("#fullscreenToggle");
 
+  // main swiper
+  var corporation = {
+    1: {
+      name: "엠트리센 / 엠트리센",
+      link: "https://m3sen.com/ko",
+      tell: "02-6956-9413",
+      model: "모돈 자동급이기 / DSN-V02",
+      ict: "000.0000.0000",
+      feature:
+        "3D 카메라를 통해 체형 데이터를 수집하고 이를 인공지능 분석하여 기반으로 개체별 급이량을 제어",
+      make: "임신모돈 전자식 자동급이기, 모돈 체형 측정 자동화 시스템, 3D 스캐너, 제어부",
+      data: "모돈 체형 데이터 (등각, 등지방), 등각추위, 모돈일령, 발정 탐지, 급이설정량, 급이섭취량, 기립 횟수",
+      price: "3,950,000 원",
+    },
+    2: {
+      name: "(주)애그리로보텍 / (주)애그리로보텍",
+      link: "http://www.agrirobotech.co.kr/main.do",
+      tell: "031-8011-3622",
+      model: "모돈 자동급이기 / SJFF-22-01",
+      ict: "000.0000.0000",
+      feature:
+        "모돈 및 분만돈 등 개체를 식별하여 사료량, 횟수 등을 제어 및 기록하고 자동으로 사료 공급",
+      make: "게이트웨이, 리모컨, 오름모돈급이기, 트리거센서, 전원함",
+      data: "분만동별 데이터 모니터링 (산차, 분만일령, 급이곡선, 급이설정량, 절식 여부, 증/감량)",
+      price: "3,960,000 원",
+    },
+    3: {
+      name: "(주)지원 / (주)아이온텍",
+      link: "http://www.iontec.kr/",
+      tell: "032-765-9058",
+      model: "모돈 자동급이기 / BFC-700",
+      ict: "000.0000.0000",
+      feature: "사료토출시 원하는 양만큼 소량의 물을 함께 공급하는 습식급이기",
+      make: "터치센서, 급이장치, 음수밸브",
+      data: "일 급이현황 (설정량, 섭취량, 잔량), 절식 여부, 이유 여부,증가 여부, 학습 여부 및 알람",
+      price: "600,000 원",
+    },
+  };
+
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    centeredSlides: true,
+    slideToClickedSlide: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+  swiper.on("slideChange", function (swiper) {
+    const item = corporation[swiper.activeIndex + 1];
+
+    document.getElementById("name").innerText = item.name;
+    document.getElementById("link").href = item.link;
+    document.getElementById("tell").innerText = item.tell;
+    document.getElementById("model").innerText = item.model;
+    document.getElementById("ict").innerText = item.ict;
+    document.getElementById("feature").innerText = item.feature;
+    document.getElementById("make").innerText = item.make;
+    document.getElementById("data").innerText = item.data;
+    document.getElementById("price").innerText = item.price;
+  });
+
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
     var setMode = function () {
